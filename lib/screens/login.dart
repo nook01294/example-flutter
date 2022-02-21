@@ -255,24 +255,6 @@ class _RegisterState extends State<Login> {
                                       apiService
                                           .login(username, password)
                                           .then((value) {
-                                        showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                content: Text(value.error),
-                                                actions: <Widget>[
-                                                  FlatButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context,
-                                                                rootNavigator:
-                                                                    true)
-                                                            .pop('dialog');
-                                                      },
-                                                      child: Text('close'))
-                                                ],
-                                              );
-                                            });
-
                                         if (value != null) {
                                           setState(() {
                                             isApiCallProcess = false;

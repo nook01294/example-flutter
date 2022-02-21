@@ -6,6 +6,7 @@ import 'package:argon_flutter/constants/Theme.dart';
 
 //widgets
 import 'package:argon_flutter/widgets/input.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class Register extends StatefulWidget {
@@ -14,11 +15,12 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final heightPercent = Get.height / 100;
   bool _checkboxValue = false;
   TextEditingController dateinput = TextEditingController();
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
   bool hidePassword = true;
-   bool isApiCallProcess = false;
+  bool isApiCallProcess = false;
 
   final double height = window.physicalSize.height;
   RegisterModel regis = new RegisterModel();
@@ -63,7 +65,7 @@ class _RegisterState extends State<Register> {
                     borderRadius: BorderRadius.circular(4.0),
                   ),
                   child: Container(
-                      height: MediaQuery.of(context).size.height * 0.78,
+                      // height: MediaQuery.of(context).size.height * 1.0,
                       color: NowUIColors.bgColorScreen,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -72,6 +74,9 @@ class _RegisterState extends State<Register> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
+                              SizedBox(
+                                height: heightPercent * 5,
+                              ),
                               Padding(
                                 padding: const EdgeInsets.only(
                                   top: 5.0,
@@ -83,6 +88,9 @@ class _RegisterState extends State<Register> {
                                           fontWeight: FontWeight.w600,
                                           fontSize: 20)),
                                 ),
+                              ),
+                              SizedBox(
+                                height: heightPercent * 5,
                               ),
                               Form(
                                   key: globalFormKey,
@@ -330,106 +338,97 @@ class _RegisterState extends State<Register> {
                                                 )),
                                           ],
                                         ),
-                                      ),
-                                      // Padding(
-                                      //     padding:
-                                      //         const EdgeInsets.only(top: 15.0)),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 0.0),
-                                        child: Center(
-                                          child: FlatButton(
-                                            textColor: ArgonColors.white,
-                                            color: ArgonColors.primary,
-                                            onPressed: () {
-                                              if (validateAndSave()) {
-                                                print(regis.username);
-                                                print(regis.password);
-                                                print(regis.name);
-                                                print(regis.dateOfBirth);
-                                                print(regis.email);
-                                                print(regis.phone);
-
-                                                setState(() {
-                                                  isApiCallProcess = true;
-                                                });
-
-                                                APIRegisterService
-                                                    apiRegisterService =
-                                                    new APIRegisterService();
-                                                apiRegisterService
-                                                    .register(regis)
-                                                    .then((value) {
-                                                  if (value.status ==
-                                                      "SUCCESS") {
-                                                    showDialog(
-                                                        context: context,
-                                                        builder: (BuildContext
-                                                            context) {
-                                                          return AlertDialog(
-                                                            content: Text(
-                                                                'Register Success'),
-                                                            actions: <Widget>[
-                                                              FlatButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    Navigator.pushReplacementNamed(
-                                                                        context,
-                                                                        '/login');
-                                                                  },
-                                                                  child: Text(
-                                                                      'ok'))
-                                                            ],
-                                                          );
-                                                        });
-                                                  } else {
-                                                    showDialog(
-                                                        context: context,
-                                                        builder: (BuildContext
-                                                            context) {
-                                                          return AlertDialog(
-                                                            content: Text(
-                                                                'Error Register User'),
-                                                            actions: <Widget>[
-                                                              FlatButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    Navigator.of(
-                                                                            context,
-                                                                            rootNavigator:
-                                                                                true)
-                                                                        .pop(
-                                                                            'dialog');
-                                                                  },
-                                                                  child: Text(
-                                                                      'close'))
-                                                            ],
-                                                          );
-                                                        });
-                                                  }
-                                                });
-                                              }
-                                            },
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
-                                            ),
-                                            child: Padding(
-                                                padding: EdgeInsets.only(
-                                                    left: 16.0,
-                                                    right: 16.0,
-                                                    top: 12,
-                                                    bottom: 12),
-                                                child: Text("REGISTER",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 16.0))),
-                                          ),
-                                        ),
                                       )
                                     ],
                                   )),
+                              SizedBox(
+                                height: heightPercent * 5,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 0.0),
+                                child: Center(
+                                  child: FlatButton(
+                                    textColor: ArgonColors.white,
+                                    color: ArgonColors.primary,
+                                    onPressed: () {
+                                      if (validateAndSave()) {
+                                        print(regis.username);
+                                        print(regis.password);
+                                        print(regis.name);
+                                        print(regis.dateOfBirth);
+                                        print(regis.email);
+                                        print(regis.phone);
+
+                                        setState(() {
+                                          isApiCallProcess = true;
+                                        });
+
+                                        APIRegisterService apiRegisterService =
+                                            new APIRegisterService();
+                                        apiRegisterService
+                                            .register(regis)
+                                            .then((value) {
+                                          if (value.status == "SUCCESS") {
+                                            showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return AlertDialog(
+                                                    content: Text(
+                                                        'Register Success'),
+                                                    actions: <Widget>[
+                                                      FlatButton(
+                                                          onPressed: () {
+                                                            Navigator
+                                                                .pushReplacementNamed(
+                                                                    context,
+                                                                    '/login');
+                                                          },
+                                                          child: Text('ok'))
+                                                    ],
+                                                  );
+                                                });
+                                          } else {
+                                            showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return AlertDialog(
+                                                    content: Text(
+                                                        'Error Register User'),
+                                                    actions: <Widget>[
+                                                      FlatButton(
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context,
+                                                                    rootNavigator:
+                                                                        true)
+                                                                .pop('dialog');
+                                                          },
+                                                          child: Text('close'))
+                                                    ],
+                                                  );
+                                                });
+                                          }
+                                        });
+                                      }
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4.0),
+                                    ),
+                                    child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 16.0,
+                                            right: 16.0,
+                                            top: 12,
+                                            bottom: 12),
+                                        child: Text("REGISTER",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16.0))),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),
