@@ -1,7 +1,9 @@
 import 'package:argon_flutter/constants/reload.dart';
+import 'package:argon_flutter/screens/figma/home_figma.dart';
 import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/screens/onboard/onboarding1.dart';
 import 'package:argon_flutter/screens/onboard/splash_screen.dart';
+import 'package:argon_flutter/screens/row-col.dart';
 import 'package:argon_flutter/utils/auth_stm.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Argon PRO Flutter',
-        theme: ThemeData(fontFamily: 'OpenSans'),
+        theme: ThemeData(fontFamily: 'Prompt'),
         initialRoute: "/onboarding",
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           "/profile": (BuildContext context) => new Profile(),
           "/articles": (BuildContext context) => new Articles(),
           "/elements": (BuildContext context) => new Elements(),
-          "/account": (BuildContext context) => new Register(),
+          "/homeFigma": (BuildContext context) => new HomeFigma(),
           "/login": (BuildContext context) => new Login(),
           "/pro": (BuildContext context) => new Pro(),
         });
