@@ -39,8 +39,9 @@ class CardMini extends StatelessWidget {
                   child: Text(
                     text,
                     style: TextStyle(
-                        fontSize: null != width ? width * .035 : 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: null != width ? width * .030 : 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Prompt'),
                   ),
                 )
             ],

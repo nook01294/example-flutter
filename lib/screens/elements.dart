@@ -39,6 +39,60 @@ class _ElementsState extends State<Elements> {
           child: SafeArea(
             bottom: true,
             child: Column(children: [
+              GestureDetector(
+                onTap: () {
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('AlertDialog Title'),
+                      content: const Text('AlertDialog description'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        // TextButton(
+                        //   onPressed: () => Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //         builder: (context) => NumberMine(),
+                        //       )).then((value) {
+                        //     AuthenService.removeLogin();
+                        //   }),
+                        //   child: const Text('OK'),
+                        // ),
+                      ],
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.check_circle_outline,
+                ),
+              ),
+              TextButton(
+                onPressed: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('AlertDialog Title'),
+                    content: const Text('AlertDialog description'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                        child: const Text('Cancel'),
+                      ),
+                      // TextButton(
+                      //   onPressed: () => Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) => NumberMine(),
+                      //       )).then((value) {}),
+                      //   child: const Text('OK'),
+                      // ),
+                    ],
+                  ),
+                ),
+                child: const Text('Show Dialog'),
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, top: 32),
                 child: Align(

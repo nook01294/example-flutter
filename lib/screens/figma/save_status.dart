@@ -96,7 +96,8 @@ class SaveStatus extends StatelessWidget {
                                 )).then((value) {});
                           },
                           child: new Text('เริ่มงาน',
-                              style: TextStyle(fontSize: 16)),
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.green)),
                         ),
                       ],
                     )),

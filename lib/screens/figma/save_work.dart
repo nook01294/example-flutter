@@ -279,7 +279,7 @@ class _LocationState extends State<SaveWork> {
                           ),
                         ],
                       )),
-                      Padding(padding: EdgeInsets.only(top: 20.0)),
+                      // Padding(padding: EdgeInsets.only(top: 20.0)),
                       Divider(
                         thickness: 3,
                         color: Colors.green,

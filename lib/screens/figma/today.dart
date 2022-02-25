@@ -1,4 +1,5 @@
-import 'package:argon_flutter/screens/figma/map.dart';
+import 'package:argon_flutter/screens/figma/map_location/map.dart';
+import 'package:argon_flutter/screens/figma/store/number_mine.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -43,180 +44,174 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
           Column(
             children: [
               GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MapScreen(),
-                        )).then((value) {});
-                  },
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    child: CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage("assets/img/pic1.jpg"),
-                                      radius: 25.0,
-                                    ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MapScreen(),
+                      )).then((value) {});
+                },
+                child: Column(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 100.0,
+                              child: CircleAvatar(
+                                backgroundImage:
+                                    AssetImage("assets/img/pic1.jpg"),
+                                radius: 25.0,
+                              ),
+                            ),
+                            Expanded(
+                                child: Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Store Name',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    'NY, Abraham Suite..',
+                                    style: TextStyle(),
                                   ),
-                                ),
-                                Expanded(
-                                    child: Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Store Name',
-                                          style:
-                                              TextStyle(fontFamily: 'Prompt')),
-                                      Text(
-                                        'NY, Abraham Mount Suite..',
-                                        style: TextStyle(fontFamily: 'Prompt'),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                                Expanded(
-                                    child: Container(
-                                  child: Icon(
-                                    Icons.add_shopping_cart_outlined,
-                                    // color: Colors.green,
-                                    size: 25,
-                                  ),
+                                ],
+                              ),
+                            )),
+                            Container(
+                              width: 100.0,
+                              child: Icon(
+                                Icons.add_shopping_cart_outlined,
+                                size: 25,
+                              ),
+                            )
+                          ],
+                        )),
+                    Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 100.0,
+                              child: Icon(
+                                Icons.map_outlined,
+                                color: Colors.grey,
+                                size: 30,
+                              ),
+                            ),
+                            Expanded(
+                                child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Distance',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    '15 กม. 8.50 นาที',
+                                    style: TextStyle(),
+                                  )
+                                ],
+                              ),
+                            )),
+                            Container(
+                              width: 100.0,
+                              child: Icon(
+                                Icons.arrow_upward_outlined,
+                                // color: Colors.green,
+                                size: 25,
+                              ),
+                            )
+                          ],
+                        )),
+                    Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 100.0,
+                              child: Icon(
+                                Icons.people_outline,
+                                color: Colors.grey,
+                                size: 30,
+                              ),
+                            ),
+                            Expanded(
+                                child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Agness Moody',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    '09-5449-8700',
+                                    style: TextStyle(),
+                                  )
+                                ],
+                              ),
+                            )),
+                            Container(
+                              width: 100.0,
+                              child: Icon(
+                                Icons.phone_callback_outlined,
+                                // color: Colors.green,
+                                size: 25,
+                              ),
+                            )
+                          ],
+                        )),
+                    Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 100.0,
+                              child: Icon(
+                                Icons.add_box_outlined,
+                                color: Colors.grey,
+                                size: 30,
+                              ),
+                            ),
+                            Expanded(
+                                child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('32 รายการ, 32 ตะกร้า',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    'No. 630626-00xx',
+                                    style: TextStyle(),
+                                  )
+                                ],
+                              ),
+                            )),
+                            Container(
+                                width: 100.0,
+                                child: Column(
+                                  children: [
+                                    Text('3200.00',
+                                        style: TextStyle(
+                                            color: Colors.orange,
+                                            fontWeight: FontWeight.bold)),
+                                    Text(
+                                      'THB',
+                                      style: TextStyle(),
+                                    )
+                                  ],
                                 ))
-                              ],
-                            )),
-                        Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Icon(
-                                    Icons.map_outlined,
-                                    color: Colors.grey,
-                                    size: 30,
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Distance',
-                                          style:
-                                              TextStyle(fontFamily: 'Prompt')),
-                                      Text(
-                                        '15 กม. 8.50 นาที',
-                                        style: TextStyle(fontFamily: 'Prompt'),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                                Expanded(
-                                    child: Container(
-                                  child: Icon(
-                                    Icons.arrow_upward_outlined,
-                                    // color: Colors.green,
-                                    size: 25,
-                                  ),
-                                ))
-                              ],
-                            )),
-                        Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Icon(
-                                    Icons.people_outline,
-                                    color: Colors.grey,
-                                    size: 30,
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Agness Moody',
-                                          style:
-                                              TextStyle(fontFamily: 'Prompt')),
-                                      Text(
-                                        '09-5449-8700',
-                                        style: TextStyle(fontFamily: 'Prompt'),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                                Expanded(
-                                    child: Container(
-                                  child: Icon(
-                                    Icons.phone_callback_outlined,
-                                    // color: Colors.green,
-                                    size: 25,
-                                  ),
-                                ))
-                              ],
-                            )),
-                        Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Icon(
-                                    Icons.add_box_outlined,
-                                    color: Colors.grey,
-                                    size: 30,
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('32 รายการ, 32 ตะกร้า',
-                                          style:
-                                              TextStyle(fontFamily: 'Prompt')),
-                                      Text(
-                                        'No. 630626-00xx',
-                                        style: TextStyle(fontFamily: 'Prompt'),
-                                      )
-                                    ],
-                                  ),
-                                )),
-                                Expanded(
-                                    child: Container(
-                                        width: 200.0,
-                                        child: Column(
-                                          children: [
-                                            Text('3200.00',
-                                                style: TextStyle(
-                                                    fontFamily: 'Prompt',
-                                                    color: Colors.orange)),
-                                            Text(
-                                              'THB',
-                                              style: TextStyle(
-                                                  fontFamily: 'Prompt'),
-                                            )
-                                          ],
-                                        )))
-                              ],
-                            )),
-                      ],
-                    ),
-                  )),
+                          ],
+                        )),
+                  ],
+                ),
+              ),
               SizedBox(height: 20.0),
               Divider(
                 thickness: 2,
@@ -229,12 +224,11 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage("assets/img/pic2.jpg"),
-                            radius: 25.0,
-                          ),
+                      Container(
+                        width: 100.0,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage("assets/img/pic2.jpg"),
+                          radius: 25.0,
                         ),
                       ),
                       Expanded(
@@ -243,29 +237,29 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Store Name',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                              'NY, Abraham Mount Suite..',
-                              style: TextStyle(fontFamily: 'Prompt'),
-                            )
+                              'NY, Abraham Suite..',
+                              style: TextStyle(),
+                            ),
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.add_shopping_cart_outlined,
-                          // color: Colors.green,
                           size: 25,
                         ),
-                      ))
+                      )
                     ],
                   )),
               Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.map_outlined,
                           color: Colors.grey,
@@ -279,29 +273,30 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Distance',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
                               '15 กม. 8.50 นาที',
-                              style: TextStyle(fontFamily: 'Prompt'),
+                              style: TextStyle(),
                             )
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.arrow_upward_outlined,
                           // color: Colors.green,
                           size: 25,
                         ),
-                      ))
+                      )
                     ],
                   )),
               Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.people_outline,
                           color: Colors.grey,
@@ -315,29 +310,30 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Agness Moody',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
                               '09-5449-8700',
-                              style: TextStyle(fontFamily: 'Prompt'),
+                              style: TextStyle(),
                             )
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.phone_callback_outlined,
                           // color: Colors.green,
                           size: 25,
                         ),
-                      ))
+                      )
                     ],
                   )),
               Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.add_box_outlined,
                           color: Colors.grey,
@@ -351,29 +347,28 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('32 รายการ, 32 ตะกร้า',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
                               'No. 630626-00xx',
-                              style: TextStyle(fontFamily: 'Prompt'),
+                              style: TextStyle(),
                             )
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
-                              width: 200.0,
-                              child: Column(
-                                children: [
-                                  Text('3200.00',
-                                      style: TextStyle(
-                                          fontFamily: 'Prompt',
-                                          color: Colors.orange)),
-                                  Text(
-                                    'THB',
-                                    style: TextStyle(fontFamily: 'Prompt'),
-                                  )
-                                ],
-                              )))
+                      Container(
+                          width: 100.0,
+                          child: Column(
+                            children: [
+                              Text('3200.00',
+                                  style: TextStyle(
+                                      color: Colors.orange,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                'THB',
+                                style: TextStyle(),
+                              )
+                            ],
+                          ))
                     ],
                   )),
               SizedBox(height: 20.0),
@@ -388,12 +383,11 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage("assets/img/pic3.jpg"),
-                            radius: 25.0,
-                          ),
+                      Container(
+                        width: 100.0,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage("assets/img/pic3.jpg"),
+                          radius: 25.0,
                         ),
                       ),
                       Expanded(
@@ -402,29 +396,29 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Store Name',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                              'NY, Abraham Mount Suite..',
-                              style: TextStyle(fontFamily: 'Prompt'),
-                            )
+                              'NY, Abraham Suite..',
+                              style: TextStyle(),
+                            ),
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.add_shopping_cart_outlined,
-                          // color: Colors.green,
                           size: 25,
                         ),
-                      ))
+                      )
                     ],
                   )),
               Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.map_outlined,
                           color: Colors.grey,
@@ -438,29 +432,30 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Distance',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
                               '15 กม. 8.50 นาที',
-                              style: TextStyle(fontFamily: 'Prompt'),
+                              style: TextStyle(),
                             )
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.arrow_upward_outlined,
                           // color: Colors.green,
                           size: 25,
                         ),
-                      ))
+                      )
                     ],
                   )),
               Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.people_outline,
                           color: Colors.grey,
@@ -474,29 +469,30 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Agness Moody',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
                               '09-5449-8700',
-                              style: TextStyle(fontFamily: 'Prompt'),
+                              style: TextStyle(),
                             )
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.phone_callback_outlined,
                           // color: Colors.green,
                           size: 25,
                         ),
-                      ))
+                      )
                     ],
                   )),
               Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     children: [
-                      Expanded(
+                      Container(
+                        width: 100.0,
                         child: Icon(
                           Icons.add_box_outlined,
                           color: Colors.grey,
@@ -510,29 +506,28 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('32 รายการ, 32 ตะกร้า',
-                                style: TextStyle(fontFamily: 'Prompt')),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
                               'No. 630626-00xx',
-                              style: TextStyle(fontFamily: 'Prompt'),
+                              style: TextStyle(),
                             )
                           ],
                         ),
                       )),
-                      Expanded(
-                          child: Container(
-                              width: 200.0,
-                              child: Column(
-                                children: [
-                                  Text('3200.00',
-                                      style: TextStyle(
-                                          fontFamily: 'Prompt',
-                                          color: Colors.orange)),
-                                  Text(
-                                    'THB',
-                                    style: TextStyle(fontFamily: 'Prompt'),
-                                  )
-                                ],
-                              )))
+                      Container(
+                          width: 100.0,
+                          child: Column(
+                            children: [
+                              Text('3200.00',
+                                  style: TextStyle(
+                                      color: Colors.orange,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                'THB',
+                                style: TextStyle(),
+                              )
+                            ],
+                          ))
                     ],
                   )),
               SizedBox(height: 20.0),
@@ -543,6 +538,166 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                 indent: 30,
                 endIndent: 30,
               ),
+              Padding(
+                  padding: EdgeInsets.only(top: 5.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 100.0,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage("assets/img/pic4.jpg"),
+                          radius: 25.0,
+                        ),
+                      ),
+                      Expanded(
+                          child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Store Name',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              'NY, Abraham Suite..',
+                              style: TextStyle(),
+                            ),
+                          ],
+                        ),
+                      )),
+                      Container(
+                        width: 100.0,
+                        child: Icon(
+                          Icons.add_shopping_cart_outlined,
+                          size: 25,
+                        ),
+                      )
+                    ],
+                  )),
+              Padding(
+                  padding: EdgeInsets.only(top: 5.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 100.0,
+                        child: Icon(
+                          Icons.map_outlined,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                      ),
+                      Expanded(
+                          child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Distance',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              '15 กม. 8.50 นาที',
+                              style: TextStyle(),
+                            )
+                          ],
+                        ),
+                      )),
+                      Container(
+                        width: 100.0,
+                        child: Icon(
+                          Icons.arrow_upward_outlined,
+                          // color: Colors.green,
+                          size: 25,
+                        ),
+                      )
+                    ],
+                  )),
+              Padding(
+                  padding: EdgeInsets.only(top: 5.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 100.0,
+                        child: Icon(
+                          Icons.people_outline,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                      ),
+                      Expanded(
+                          child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Agness Moody',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              '09-5449-8700',
+                              style: TextStyle(),
+                            )
+                          ],
+                        ),
+                      )),
+                      Container(
+                        width: 100.0,
+                        child: Icon(
+                          Icons.phone_callback_outlined,
+                          // color: Colors.green,
+                          size: 25,
+                        ),
+                      )
+                    ],
+                  )),
+              Padding(
+                  padding: EdgeInsets.only(top: 5.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 100.0,
+                        child: Icon(
+                          Icons.add_box_outlined,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                      ),
+                      Expanded(
+                          child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('32 รายการ, 32 ตะกร้า',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              'No. 630626-00xx',
+                              style: TextStyle(),
+                            )
+                          ],
+                        ),
+                      )),
+                      Container(
+                          width: 100.0,
+                          child: Column(
+                            children: [
+                              Text('3200.00',
+                                  style: TextStyle(
+                                      color: Colors.orange,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                'THB',
+                                style: TextStyle(),
+                              )
+                            ],
+                          ))
+                    ],
+                  )),
+              SizedBox(height: 20.0),
+              Divider(
+                thickness: 2,
+                color: Colors.green,
+                height: 5,
+                indent: 30,
+                endIndent: 30,
+              ),
+              SizedBox(height: 20.0),
             ],
           )
         ]),
