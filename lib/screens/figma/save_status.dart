@@ -70,7 +70,7 @@ class SaveStatus extends StatelessWidget {
                                   builder: (context) => HomeFigma(),
                                 )).then((value) {});
                           },
-                          child: new Text('กลับหน้าหลัก',
+                          child: new Text(' กลับหน้าหลัก',
                               style: TextStyle(fontSize: 16)),
                         ),
                         // Text(
@@ -95,7 +95,7 @@ class SaveStatus extends StatelessWidget {
                                   builder: (context) => SendItem(),
                                 )).then((value) {});
                           },
-                          child: new Text('เริ่มงาน',
+                          child: new Text(' เริ่มงาน',
                               style:
                                   TextStyle(fontSize: 16, color: Colors.green)),
                         ),

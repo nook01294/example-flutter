@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:argon_flutter/screens/figma/store/check_in.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -109,8 +110,8 @@ class _MapState extends State<MapScreen> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(18.0),
-                        topRight: Radius.circular(18.0)),
+                        topLeft: Radius.circular(50.0),
+                        topRight: Radius.circular(50.0)),
                     boxShadow: [
                       BoxShadow(
                           color: Colors.black,
@@ -284,12 +285,13 @@ class _MapState extends State<MapScreen> {
                             ],
                           )),
                       SizedBox(
-                        height: 10.0,
+                        height: 15.0,
                       ),
-                      Divider(
-                        thickness: 1.5,
-                        indent: 10.0,
-                        endIndent: 10.0,
+                      DottedLine(
+                        lineLength: 350.0,
+                      ),
+                       SizedBox(
+                        height: 15.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -301,11 +303,7 @@ class _MapState extends State<MapScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CheckIn(),
-                                  )).then((value) {});
+                              Navigator.popAndPushNamed(context, '/checkIn');
                             },
                             child: new Text('เริ่มการนำทาง',
                                 style: TextStyle(

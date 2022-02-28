@@ -45,9 +45,9 @@ class _MyHomePageState extends State<SendItem>
                   unselectedLabelColor: Color.fromARGB(255, 194, 202, 213),
                   indicatorColor: Color.fromARGB(255, 57, 203, 91),
                   labelStyle: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Prompt'),
                   tabs: [
                     Tab(
                       text: '25/09/63',
@@ -65,9 +65,9 @@ class _MyHomePageState extends State<SendItem>
             Expanded(
               child: TabBarView(
                 children: <Widget>[
-                  MyPage(title: 'หน้า 1'),
-                  Today(title: 'หน้า 2'),
-                  MyPage(title: 'หน้า 3')
+                  MyPage(title: ''),
+                  Today(title: ''),
+                  MyPage(title: '')
                 ],
               ),
             ),

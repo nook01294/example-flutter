@@ -1,5 +1,6 @@
 import 'package:argon_flutter/constants/reload.dart';
 import 'package:argon_flutter/screens/figma/home_figma.dart';
+import 'package:argon_flutter/screens/figma/store/check_in.dart';
 import 'package:argon_flutter/screens/login.dart';
 import 'package:argon_flutter/screens/onboard/onboarding1.dart';
 import 'package:argon_flutter/screens/onboard/splash_screen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           "/homeFigma": (BuildContext context) => new HomeFigma(),
           "/login": (BuildContext context) => new Login(),
           "/pro": (BuildContext context) => new Pro(),
+          "/checkIn": (BuildContext context) => new CheckIn(),
         });
   }
 }

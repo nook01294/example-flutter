@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/screens/figma/home_figma.dart';
 import 'package:argon_flutter/screens/figma/save_status.dart';
@@ -5,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
-import 'package:camera/camera.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SaveWork extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class _LocationState extends State<SaveWork> {
   String _currentAddress = "";
   final heightPercent = Get.height / 100;
   String dropdownValue = 'ปผ 2554 แพร่';
+  PickedFile imageFile = null;
 
   @override
   void initState() {
@@ -42,6 +45,32 @@ class _LocationState extends State<SaveWork> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    Future imageSelector(BuildContext context, String pickerType) async {
+      switch (pickerType) {
+        case "gallery":
+
+          /// GALLERY IMAGE PICKER
+          imageFile = await ImagePicker()
+              .getImage(source: ImageSource.gallery, imageQuality: 90);
+          break;
+
+        case "camera": // CAMERA CAPTURE CODE
+          imageFile = await ImagePicker()
+              .getImage(source: ImageSource.camera, imageQuality: 90);
+          break;
+      }
+
+      if (imageFile != null) {
+        print("You selected  image : " + imageFile.path);
+        setState(() {
+          debugPrint("SELECTED IMAGE PICK   $imageFile");
+        });
+      } else {
+        print("You have not taken image");
+      }
+    }
+
     return Scaffold(
         backgroundColor: Colors.grey[800],
         body: Stack(children: <Widget>[
@@ -226,28 +255,42 @@ class _LocationState extends State<SaveWork> {
                                 fontSize: 16,
                                 color: Colors.grey),
                           ),
-                          DottedBorder(
-                            color: Colors.black,
-                            borderType: BorderType.RRect,
-                            radius: Radius.circular(20),
-                            dashPattern: [10, 5, 10, 5, 10, 5],
-                            padding: EdgeInsets.all(6),
-                            child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                              child: Container(
-                                height: 300,
-                                width: 500,
-                                color: Colors.grey[850],
+                          GestureDetector(
+                            onTap: () {
+                              imageSelector(context, "camera");
+                            },
+                            child: DottedBorder(
+                              color: Colors.black,
+                              borderType: BorderType.RRect,
+                              radius: Radius.circular(20),
+                              dashPattern: [10, 5, 10, 5, 10, 5],
+                              padding: EdgeInsets.all(6),
+                              child: ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
+                                child: Container(
+                                    height: 300,
+                                    width: 500,
+                                    // color: Colors.grey[850],
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[850],
+                                        // shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image: imageFile == null
+                                                ? AssetImage(
+                                                    'assets/img/camera.png')
+                                                : FileImage(
+                                                    File(imageFile.path)),
+                                            fit: BoxFit.cover))),
                               ),
-                            ),
 
-                            // child: FlutterLogo(
-                            //   size: 300,
-                            // ),
-                            // borderType: BorderType.RRect,
-                            // radius: Radius.circular(20),
-                            // dashPattern: [10, 5, 10, 5, 10, 5],
+                              // child: FlutterLogo(
+                              //   size: 300,
+                              // ),
+                              // borderType: BorderType.RRect,
+                              // radius: Radius.circular(20),
+                              // dashPattern: [10, 5, 10, 5, 10, 5],
+                            ),
                           ),
                         ],
                       ),

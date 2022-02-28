@@ -1,5 +1,6 @@
 import 'package:argon_flutter/screens/figma/map_location/map.dart';
 import 'package:argon_flutter/screens/figma/store/number_mine.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -213,15 +214,11 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                 ),
               ),
               SizedBox(height: 20.0),
-              Divider(
-                thickness: 2,
-                color: Colors.green,
-                height: 5,
-                indent: 30,
-                endIndent: 30,
+              DottedLine(
+                lineLength: 350.0,
               ),
               Padding(
-                  padding: EdgeInsets.only(top: 5.0),
+                  padding: EdgeInsets.only(top: 15.0),
                   child: Row(
                     children: [
                       Container(
@@ -372,15 +369,11 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                     ],
                   )),
               SizedBox(height: 20.0),
-              Divider(
-                thickness: 2,
-                color: Colors.green,
-                height: 5,
-                indent: 30,
-                endIndent: 30,
+              DottedLine(
+                lineLength: 350.0,
               ),
               Padding(
-                  padding: EdgeInsets.only(top: 5.0),
+                  padding: EdgeInsets.only(top: 15.0),
                   child: Row(
                     children: [
                       Container(
@@ -531,15 +524,11 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                     ],
                   )),
               SizedBox(height: 20.0),
-              Divider(
-                thickness: 2,
-                color: Colors.green,
-                height: 5,
-                indent: 30,
-                endIndent: 30,
+              DottedLine(
+                lineLength: 350.0,
               ),
               Padding(
-                  padding: EdgeInsets.only(top: 5.0),
+                  padding: EdgeInsets.only(top: 15.0),
                   child: Row(
                     children: [
                       Container(
@@ -690,12 +679,8 @@ class _TodayState extends State<_Today> with AutomaticKeepAliveClientMixin {
                     ],
                   )),
               SizedBox(height: 20.0),
-              Divider(
-                thickness: 2,
-                color: Colors.green,
-                height: 5,
-                indent: 30,
-                endIndent: 30,
+              DottedLine(
+                lineLength: 350.0,
               ),
               SizedBox(height: 20.0),
             ],

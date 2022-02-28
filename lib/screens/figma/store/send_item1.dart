@@ -1,4 +1,5 @@
 import 'package:argon_flutter/screens/figma/map_location/map.dart';
+import 'package:argon_flutter/screens/figma/store/list_item.dart';
 import 'package:argon_flutter/screens/figma/store/number_mine.dart';
 import 'package:argon_flutter/utils/auth_service.dart';
 import 'package:argon_flutter/widgets/card_mini.dart';
@@ -35,11 +36,11 @@ class _SendItem1State extends State<SendItem1> {
               children: [
                 GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MapScreen(),
-                          )).then((value) {});
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => MapScreen(),
+                      //     )).then((value) {});
                     },
                     child: Card(
                         elevation: 5,
@@ -242,11 +243,11 @@ class _SendItem1State extends State<SendItem1> {
                             bottom: isTablet ? 20 : 20),
                         child: GestureDetector(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => CountNumberPage(),
-                            //     )).then((value) {});
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ListItem(),
+                                )).then((value) {});
 
                             // pushNewScreen(
                             //   context,
